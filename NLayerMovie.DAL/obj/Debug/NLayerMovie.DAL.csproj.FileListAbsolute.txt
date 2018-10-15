@@ -1,0 +1,14 @@
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\bin\Debug\NLayerMovie.DAL.dll.config
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\bin\Debug\NLayerMovie.DAL.dll
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\bin\Debug\NLayerMovie.DAL.pdb
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\bin\Debug\EntityFramework.dll
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\bin\Debug\EntityFramework.xml
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\obj\Debug\NLayerMovie.DAL.csprojAssemblyReference.cache
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\obj\Debug\NLayerMovie.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\obj\Debug\NLayerMovie.DAL.csproj.CopyComplete
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\obj\Debug\NLayerMovie.DAL.dll
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\obj\Debug\NLayerMovie.DAL.pdb
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\obj\Debug\NLayerMovie.DAL.Migrations.Initial.resources
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\obj\Debug\NLayerMovie.DAL.csproj.GenerateResource.cache
