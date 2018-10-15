@@ -34,11 +34,11 @@ namespace NLayerMovie.BLL.Services
         }
 
         public IEnumerable<MovieDTO> GetMovies()
-        {            
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Movie, MovieDTO>()).CreateMapper();
-
-            IEnumerable<Movie> all = Database.Movies.GetAll();
-
+        {           
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Movie, MovieDTO>()
+                .ForMember("Genre", opt => opt.MapFrom(src=>src.Genre.Name)))
+                .CreateMapper();
+            
             return mapper.Map<IEnumerable<Movie>, List<MovieDTO>>(Database.Movies.GetAll());
         }
 

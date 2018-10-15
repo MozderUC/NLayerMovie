@@ -20,8 +20,7 @@ namespace NLayerMovie.DAL.Repositories
         }
 
         public IEnumerable<Movie> GetAll()
-        {
-            IEnumerable<Movie> all = db.Movies;
+        {            
             return db.Movies;
         }
 
