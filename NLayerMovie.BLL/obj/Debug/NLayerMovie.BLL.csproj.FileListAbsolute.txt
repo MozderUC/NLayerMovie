@@ -36,3 +36,10 @@ D:\asp\NLayerMovie\NLayerMovie.BLL\obj\Debug\NLayerMovie.BLL.csproj.CoreCompileI
 D:\asp\NLayerMovie\NLayerMovie.BLL\obj\Debug\NLayerMovie.BLL.csproj.CopyComplete
 D:\asp\NLayerMovie\NLayerMovie.BLL\obj\Debug\NLayerMovie.BLL.dll
 D:\asp\NLayerMovie\NLayerMovie.BLL\obj\Debug\NLayerMovie.BLL.pdb
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.BLL\bin\Debug\NLayerMovie.BLL.dll.config
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml

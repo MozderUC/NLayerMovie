@@ -1,5 +1,7 @@
-﻿using NLayerMovie.DAL.EF;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using NLayerMovie.DAL.EF;
 using NLayerMovie.DAL.Entities;
+using NLayerMovie.DAL.Identity;
 using NLayerMovie.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -15,9 +17,17 @@ namespace NLayerMovie.DAL.Repositories
         private MovieRepository movieRepository;
         private GenreRepository genreRepository;
 
+        private ApplicationUserManager userManager;
+        private ApplicationRoleManager roleManager;
+        private IClientManager clientManager;
+
+
         public EFUnitOfWork(string connectionString)
         {
             db = new MovieContext(connectionString);
+            userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(db));
+            roleManager = new ApplicationRoleManager(new RoleStore<ApplicationRole>(db));
+            clientManager = new ClientManager(db);
         }
         public IRepository<Movie> Movies
         {
@@ -39,6 +49,26 @@ namespace NLayerMovie.DAL.Repositories
             }
         }
 
+        public ApplicationUserManager UserManager
+        {
+            get { return userManager; }
+        }
+
+        public IClientManager ClientManager
+        {
+            get { return clientManager; }
+        }
+
+        public ApplicationRoleManager RoleManager
+        {
+            get { return roleManager; }
+        }
+
+        public async Task SaveAsync()
+        {
+            await db.SaveChangesAsync();
+        }
+
         public void Save()
         {
             db.SaveChanges();
@@ -53,6 +83,9 @@ namespace NLayerMovie.DAL.Repositories
                 if (disposing)
                 {
                     db.Dispose();
+                    userManager.Dispose();
+                    roleManager.Dispose();
+                    clientManager.Dispose();
                 }
                 this.disposed = true;
             }

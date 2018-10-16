@@ -13,6 +13,7 @@ namespace NLayerMovie.WEB.Util
         public override void Load()
         {
             Bind<IMovieService>().To<MovieService>();
+            Bind<IUserService>().To<UserService>();
         }
     }
 }
