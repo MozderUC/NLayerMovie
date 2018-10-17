@@ -40,3 +40,55 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+<script type="text/javascript">
+    function decodeHtml(html) {
+        var txt = document.createElement("textarea");
+        txt.innerHTML = html;
+        return txt.value;
+    }
+
+    $(function () {
+
+        $('#comments-container').comments({
+
+
+            profilePictureURL: 'https://viima-app.s3.amazonaws.com/media/public/defaults/user-icon.png',
+            roundProfilePictures: true,
+            textareaRows: 1,
+            enableAttachments: true,
+            maxRepliesVisible: 3,
+
+            getComments: function (success, error) {
+                $.ajax({
+                    type: "get",
+                    url: "/Comment/getComments?entityType=@Model.entityType&entityID=@Model.ID",
+                    success: function (result) {
+                        success(JSON.parse(result))
+                    },
+                    error: error
+                });
+            },
+
+            postComment: function (commentJSON, success, error) {
+                $.ajax({
+                    type: 'post',
+                    url: '/Comment/postComment?entityID=@Model.ID&entityType=@Model.entityType',
+                    data: commentJSON,
+                    success: function (result) {
+                        var json = JSON.parse(result)
+                        if (json['success']) {
+                            success(json)
+                        }
+                        else {
+                            alert("Please Login");
+                        }
+                    },
+                    error: error
+                });
+            }
+        });
+    });
+</script>
+
+<div id="comments-container"></div>

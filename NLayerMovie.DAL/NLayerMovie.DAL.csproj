@@ -79,6 +79,8 @@
     <Compile Include="Entities\ApplicationRole.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
     <Compile Include="Entities\ClientProfile.cs" />
+    <Compile Include="Entities\Comment.cs" />
+    <Compile Include="Entities\CommentEntity.cs" />
     <Compile Include="Entities\Genre.cs" />
     <Compile Include="Entities\Movie.cs" />
     <Compile Include="Identity\ApplicationRoleManager.cs" />
@@ -94,9 +96,14 @@
     <Compile Include="Migrations\201810161004397_addAspIdentity.Designer.cs">
       <DependentUpon>201810161004397_addAspIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810171021015_addComments.cs" />
+    <Compile Include="Migrations\201810171021015_addComments.Designer.cs">
+      <DependentUpon>201810171021015_addComments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ClientManager.cs" />
+    <Compile Include="Repositories\CommentRepository.cs" />
     <Compile Include="Repositories\EFUnitOfWork.cs" />
     <Compile Include="Repositories\GenreRepository.cs" />
     <Compile Include="Repositories\MovieRepository.cs" />
@@ -111,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810161004397_addAspIdentity.resx">
       <DependentUpon>201810161004397_addAspIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810171021015_addComments.resx">
+      <DependentUpon>201810171021015_addComments.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

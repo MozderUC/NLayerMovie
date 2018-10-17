@@ -16,6 +16,7 @@ namespace NLayerMovie.DAL.Repositories
         private MovieContext db;
         private MovieRepository movieRepository;
         private GenreRepository genreRepository;
+        private CommentRepository commentRepository;
 
         private ApplicationUserManager userManager;
         private ApplicationRoleManager roleManager;
@@ -25,6 +26,7 @@ namespace NLayerMovie.DAL.Repositories
         public EFUnitOfWork(string connectionString)
         {
             db = new MovieContext(connectionString);
+
             userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(db));
             roleManager = new ApplicationRoleManager(new RoleStore<ApplicationRole>(db));
             clientManager = new ClientManager(db);
@@ -48,6 +50,17 @@ namespace NLayerMovie.DAL.Repositories
                 return genreRepository;
             }
         }
+
+        public IRepository<Comment> Comments
+        {
+            get
+            {
+                if (commentRepository == null)
+                    commentRepository = new CommentRepository(db);
+                return commentRepository;
+            }
+        }
+
 
         public ApplicationUserManager UserManager
         {

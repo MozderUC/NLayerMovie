@@ -12,6 +12,7 @@ namespace NLayerMovie.DAL.Interfaces
     {
         IRepository<Movie> Movies { get; }
         IRepository<Genre> Genres { get; }
+        IRepository<Comment> Comments { get; }
         void Save();
 
         ApplicationUserManager UserManager { get; }
