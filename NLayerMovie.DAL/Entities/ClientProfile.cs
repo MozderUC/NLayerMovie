@@ -18,6 +18,7 @@ namespace NLayerMovie.DAL.Entities
         public string Address { get; set; }
 
         public virtual ICollection<CommentEntity> comments { get; set; }
+        public virtual ICollection<Upvote> Upvotes { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

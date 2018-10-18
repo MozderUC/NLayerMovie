@@ -36,9 +36,9 @@ namespace NLayerMovie.DAL.Repositories
             db.Comments.Add(comment);
         }
         
-        public void Update(Comment movie)
+        public void Update(Comment comment)
         {
-            db.Entry(movie).State = EntityState.Modified;
+            db.Entry(comment).State = EntityState.Modified;
         }
         
         public IEnumerable<Comment> Find(Func<Comment, Boolean> predicate)

@@ -16,6 +16,7 @@ namespace NLayerMovie.DAL.EF
         public DbSet<Genre> Genres { get; set; }
         public DbSet<ClientProfile> ClientProfiles { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Upvote> Upvotes{ get; set; }
 
         public MovieContext() : base("NlayerMovie")
         {

@@ -10,6 +10,7 @@ namespace NLayerMovie.BLL.Interfaces
     public interface ICommentService
     {
         void PostComment(CommentDTO commentDto);
-        IEnumerable<GetCommentsDTO> GetComments(int entityType, int entityID);
+        IEnumerable<GetCommentsDTO> GetComments(int entityType, int entityID, string userID);
+        void UpvoteComment(int CommentId, string UserId);
     }
 }

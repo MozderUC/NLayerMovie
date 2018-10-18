@@ -45,3 +45,4 @@ C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\bin\Debug\M
 C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\obj\Debug\NLayerMovie.DAL.Migrations.addComments.resources
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\obj\Debug\NLayerMovie.DAL.Migrations.addUpvote.resources

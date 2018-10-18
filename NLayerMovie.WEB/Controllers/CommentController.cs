@@ -59,8 +59,9 @@ namespace NLayerMovie.WEB.Controllers
         public string getComments(int entityType, int entityID)
         {
             try
-            {             
-                IEnumerable<GetCommentsDTO> commentsDTO =  commentService.GetComments(entityType, entityID);
+            {
+                string userID = this.User.Identity.GetUserId();
+                IEnumerable<GetCommentsDTO> commentsDTO =  commentService.GetComments(entityType, entityID,userID);
                 IEnumerable<CommentsGetViewModel> commentsGetViewModel = MapperModule.GetCommentsDTO_To_CommentsGetViewModel(commentsDTO);
 
                 return JsonConvert.SerializeObject(new { commentsGetViewModel, success = true });
@@ -71,6 +72,21 @@ namespace NLayerMovie.WEB.Controllers
             }                                      
            
 
-        }      
+        }
+
+        [ValidateAntiForgeryToken]
+        public string upvoteComment(int id)
+        {
+            try
+            {
+                string userID = this.User.Identity.GetUserId();
+                commentService.UpvoteComment(id, userID);
+                return JsonConvert.SerializeObject(new { success = true});
+            }
+            catch (DataException ex)
+            {
+                return JsonConvert.SerializeObject(new { success = false, message = ex.Message });
+            }           
+        }
     }
 }

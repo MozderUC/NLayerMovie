@@ -17,6 +17,7 @@ namespace NLayerMovie.DAL.Repositories
         private MovieRepository movieRepository;
         private GenreRepository genreRepository;
         private CommentRepository commentRepository;
+        private UpvoteRepository upvoteRepository;
 
         private ApplicationUserManager userManager;
         private ApplicationRoleManager roleManager;
@@ -58,6 +59,16 @@ namespace NLayerMovie.DAL.Repositories
                 if (commentRepository == null)
                     commentRepository = new CommentRepository(db);
                 return commentRepository;
+            }
+        }
+
+        public IRepository<Upvote> Upvotes
+        {
+            get
+            {
+                if (upvoteRepository == null)
+                    upvoteRepository = new UpvoteRepository(db);
+                return upvoteRepository;
             }
         }
 

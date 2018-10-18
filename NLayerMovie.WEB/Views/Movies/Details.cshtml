@@ -106,7 +106,31 @@
                     },
                     error: error
                 });
+            },
+
+            upvoteComment: function (commentJSON, success, error) {
+                var form = $('#__AjaxAntiForgeryForm');
+                var token = $('input[name="__RequestVerificationToken"]', form).val();
+                var upvotesURL = '/Comment/upvoteComment/' + commentJSON.id;
+                $.ajax({
+                    type: 'post',
+                    url: upvotesURL,
+                    data: {
+                        __RequestVerificationToken: token
+                    },
+                    success: function (result) {
+                        var json = JSON.parse(result)
+                        if (json['success']) {
+                            success(commentJSON)
+                        }
+                        else {
+                            alert(json['message']);
+                        }                        
+                    },
+                    error: error
+                });
             }
+
         });
     });
 </script>
