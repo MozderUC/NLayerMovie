@@ -11,6 +11,8 @@ using NLayerMovie.BLL.Services;
 using NLayerMovie.BLL.Interfaces;
 using System.Data;
 using NLayerMovie.WEB.Util;
+using System.Data.Entity;
+using Microsoft.AspNet.Identity;
 
 namespace NLayerMovie.WEB.Controllers
 {
@@ -25,15 +27,18 @@ namespace NLayerMovie.WEB.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public string postComment(CommentPostViewModel postComment)
-        {
+        {           
             try
             {
                 if (this.User.Identity.IsAuthenticated)
                 {
                     if (ModelState.IsValid)
                     {
-                        var mapper = new MapperConfiguration(cfg => cfg.CreateMap<CommentPostViewModel, CommentDTO>()).CreateMapper();
-                        CommentDTO commentDTO = mapper.Map<CommentPostViewModel, CommentDTO>(postComment);
+                        this.User.Identity.GetUserId();
+
+                        CommentDTO commentDTO = MapperModule.CommentPostViewModel_To_CommentDTO(postComment);
+
+                        commentDTO.userID = this.User.Identity.GetUserId();
                         commentService.PostComment(commentDTO);
 
                         return JsonConvert.SerializeObject(new { postComment.content, postComment.parent, success = true });

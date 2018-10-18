@@ -90,13 +90,11 @@
             postComment: function (commentJSON, success, error) {
                 var form = $('#__AjaxAntiForgeryForm');
                 var token = $('input[name="__RequestVerificationToken"]', form).val();
+                commentJSON['__RequestVerificationToken'] = token;
                 $.ajax({
                     type: 'post',
                     url: '/Comment/postComment?entityID=@Model.ID&entityType=@Model.entityType',
-                    data: {
-                        __RequestVerificationToken: token,
-                        commentJSON
-                    },
+                    data: commentJSON,
                     success: function (result) {
                         var json = JSON.parse(result)
                         if (json['success']) {

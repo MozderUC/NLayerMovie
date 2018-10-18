@@ -27,6 +27,25 @@ namespace NLayerMovie.BLL.Infrastructure
 
         }
 
-        
+        public static CommentEntity CommentDTO_To_CommentEntity(CommentDTO commentDTO)
+        {
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<CommentDTO, CommentEntity>()).CreateMapper();
+            CommentEntity commentEntity = mapper.Map<CommentDTO, CommentEntity>(commentDTO);
+
+            return commentEntity;
+        }
+
+        public static Comment CommentDTO_To_Comment(CommentDTO commentDTO)
+        {
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<CommentDTO, Comment>()
+                .ForMember("context", opt => opt.MapFrom(src => src.content)))
+                .CreateMapper();
+            Comment comment = mapper.Map<CommentDTO, Comment>(commentDTO);
+
+            return comment;
+        }
+
+
+
     }
 }

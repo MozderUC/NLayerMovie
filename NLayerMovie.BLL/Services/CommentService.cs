@@ -23,21 +23,11 @@ namespace NLayerMovie.BLL.Services
 
         public void PostComment(CommentDTO commentDTO)
         {
-            CommentEntity commentEntity = new CommentEntity
-            {
-                userID = "81abf02d-06e8-479d-a722-834284ccaf66",
-                entityID = commentDTO.entityID,
-                entityType = commentDTO.entityType,
-            };
 
-            Comment comment = new Comment
-            {
-                context = commentDTO.content,
-                parent = commentDTO.parent,
-                created = commentDTO.created,
-                modified = commentDTO.modified,
-                commentEntity = commentEntity
-            };
+            CommentEntity commentEntity = MapperModule.CommentDTO_To_CommentEntity(commentDTO);
+
+            Comment comment = MapperModule.CommentDTO_To_Comment(commentDTO);
+            comment.commentEntity = commentEntity;
 
             Database.Comments.Create(comment);
             Database.Save();
