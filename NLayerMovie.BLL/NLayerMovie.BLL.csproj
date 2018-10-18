@@ -69,6 +69,7 @@
     <Compile Include="DTO\GetCommentsDTO.cs" />
     <Compile Include="DTO\MovieDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="Infrastructure\MapperModule.cs" />
     <Compile Include="Infrastructure\OperationDetails.cs" />
     <Compile Include="Infrastructure\ServiceModule.cs" />
     <Compile Include="Interfaces\ICommentService.cs" />

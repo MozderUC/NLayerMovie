@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NLayerMovie.BLL.Infrastructure;
 
 namespace NLayerMovie.BLL.Services
 {
@@ -44,16 +45,10 @@ namespace NLayerMovie.BLL.Services
 
         public IEnumerable<GetCommentsDTO> GetComments(int entityType, int entityID)
         {
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Comment, GetCommentsDTO>()
-                .ForMember("creator", opt => opt.MapFrom(src => src.commentEntity.userID))
-                .ForMember("fullname", opt => opt.MapFrom(src => src.commentEntity.user.Name))
-                .ForMember("content", opt => opt.MapFrom(src => src.context))
-                .ForMember("id", opt => opt.MapFrom(src => src.ID)))
-                .CreateMapper();
-           
+            IEnumerable<Comment> comments = Database.Comments.Find(item => item.commentEntity.entityType.Equals(entityType) && item.commentEntity.entityID.Equals(entityID));
 
-            IEnumerable<GetCommentsDTO> commentsDTO = mapper.Map<IEnumerable<Comment>, IEnumerable<GetCommentsDTO>>(Database.Comments.Find(item => item.commentEntity.entityType.Equals(entityType) && item.commentEntity.entityID.Equals(entityID)));
-            
+            IEnumerable<GetCommentsDTO> commentsDTO = MapperModule.Comment_To_GetCommentsDTO(comments);
+
             return commentsDTO;
         }
     }

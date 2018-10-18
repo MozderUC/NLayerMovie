@@ -9,6 +9,8 @@ using NLayerMovie.BLL.DTO;
 using AutoMapper;
 using NLayerMovie.BLL.Services;
 using NLayerMovie.BLL.Interfaces;
+using System.Data;
+using NLayerMovie.WEB.Util;
 
 namespace NLayerMovie.WEB.Controllers
 {
@@ -20,29 +22,49 @@ namespace NLayerMovie.WEB.Controllers
             commentService = serv;
         }
         // GET: Comment
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public string postComment(CommentPostViewModel postComment)
         {
-            if (this.User.Identity.IsAuthenticated)
+            try
             {
-                if (ModelState.IsValid)
+                if (this.User.Identity.IsAuthenticated)
                 {
-                    var mapper = new MapperConfiguration(cfg => cfg.CreateMap<CommentPostViewModel, CommentDTO>()).CreateMapper();
-                    CommentDTO commentDTO = mapper.Map<CommentPostViewModel, CommentDTO>(postComment);
-                    commentService.PostComment(commentDTO);
+                    if (ModelState.IsValid)
+                    {
+                        var mapper = new MapperConfiguration(cfg => cfg.CreateMap<CommentPostViewModel, CommentDTO>()).CreateMapper();
+                        CommentDTO commentDTO = mapper.Map<CommentPostViewModel, CommentDTO>(postComment);
+                        commentService.PostComment(commentDTO);
 
-                    return JsonConvert.SerializeObject(new { postComment.content,postComment.parent, success = true });
+                        return JsonConvert.SerializeObject(new { postComment.content, postComment.parent, success = true });
+                    }
+                    return JsonConvert.SerializeObject(new { success = false, message = "Send data is't valid" });
                 }
-                return JsonConvert.SerializeObject(new { success = false });
+                return JsonConvert.SerializeObject(new { success = false, message = "Login please" });
             }
-            return JsonConvert.SerializeObject(new { success = false });
+            catch (DataException ex)
+            {
+                return JsonConvert.SerializeObject(new { success = false, message = ex.Message});
+            }
+            
         }
 
+       
+        [ValidateAntiForgeryToken]
         public string getComments(int entityType, int entityID)
-        {                   
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<GetCommentsDTO, CommentsGetViewModel>()).CreateMapper();          
-            IEnumerable<CommentsGetViewModel> commentsGetViewModel = mapper.Map<IEnumerable<GetCommentsDTO>, IEnumerable<CommentsGetViewModel>>(commentService.GetComments(entityType, entityID));
+        {
+            try
+            {             
+                IEnumerable<GetCommentsDTO> commentsDTO =  commentService.GetComments(entityType, entityID);
+                IEnumerable<CommentsGetViewModel> commentsGetViewModel = MapperModule.GetCommentsDTO_To_CommentsGetViewModel(commentsDTO);
 
-            return JsonConvert.SerializeObject(commentsGetViewModel);
+                return JsonConvert.SerializeObject(new { commentsGetViewModel, success = true });
+            }
+            catch (DataException ex)
+            {
+                return JsonConvert.SerializeObject(new { success = false, message = ex.Message });
+            }                                      
+           
 
         }      
     }
