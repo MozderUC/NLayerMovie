@@ -19,6 +19,8 @@ namespace NLayerMovie.WEB.Models
         public bool user_has_upvoted { get; set; }
         [Required]
         public string content { get; set; }
+        public string file_url { get; set; }
+        public string file_mime_type { get; set; }
         public int? parent { get; set; }
         public DateTime created { get; set; }
         public DateTime modified { get; set; }

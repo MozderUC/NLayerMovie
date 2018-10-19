@@ -204,6 +204,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CommentImagePostViewModel.cs" />
     <Compile Include="Models\CommentPostViewModel.cs" />
     <Compile Include="Models\CommentsGetViewModel.cs" />
     <Compile Include="Models\GenreViewModel.cs" />

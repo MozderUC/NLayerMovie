@@ -26,5 +26,13 @@ namespace NLayerMovie.WEB.Util
 
             return commentDTO;
         }
+
+        public static CommentImageDTO CommentImagePostViewModel_To_CommentImageDTO(CommentImagePostViewModel commentImagePostViewModel)
+        {
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<CommentImagePostViewModel, CommentImageDTO>()).CreateMapper();
+            CommentImageDTO commentImageDTO = mapper.Map<CommentImagePostViewModel, CommentImageDTO>(commentImagePostViewModel);
+
+            return commentImageDTO;
+        }
     }
 }

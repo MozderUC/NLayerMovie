@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\CommentDTO.cs" />
+    <Compile Include="DTO\CommentImageDTO.cs" />
     <Compile Include="DTO\GenreDTO.cs" />
     <Compile Include="DTO\GetCommentsDTO.cs" />
     <Compile Include="DTO\MovieDTO.cs" />

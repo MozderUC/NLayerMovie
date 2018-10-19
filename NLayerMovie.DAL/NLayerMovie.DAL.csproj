@@ -81,6 +81,7 @@
     <Compile Include="Entities\ClientProfile.cs" />
     <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\CommentEntity.cs" />
+    <Compile Include="Entities\CommentImage.cs" />
     <Compile Include="Entities\Genre.cs" />
     <Compile Include="Entities\Movie.cs" />
     <Compile Include="Entities\Upvote.cs" />
@@ -104,6 +105,10 @@
     <Compile Include="Migrations\201810181259048_addUpvote.cs" />
     <Compile Include="Migrations\201810181259048_addUpvote.Designer.cs">
       <DependentUpon>201810181259048_addUpvote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810191107274_addImage.cs" />
+    <Compile Include="Migrations\201810191107274_addImage.Designer.cs">
+      <DependentUpon>201810191107274_addImage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810181259048_addUpvote.resx">
       <DependentUpon>201810181259048_addUpvote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810191107274_addImage.resx">
+      <DependentUpon>201810191107274_addImage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

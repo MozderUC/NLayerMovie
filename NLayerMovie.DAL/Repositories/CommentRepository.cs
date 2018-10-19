@@ -43,7 +43,7 @@ namespace NLayerMovie.DAL.Repositories
         
         public IEnumerable<Comment> Find(Func<Comment, Boolean> predicate)
         {
-            return db.Comments.Where(predicate).ToList();
+            return db.Comments.Include("commentImage").Where(predicate).ToList();
         }
         
         public void Delete(int id)

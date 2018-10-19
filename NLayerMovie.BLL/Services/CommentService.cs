@@ -33,11 +33,28 @@ namespace NLayerMovie.BLL.Services
             Database.Save();
         }
 
+        public void PostImageComment(CommentImageDTO commentImageDTO)
+        {
+
+            CommentEntity commentEntity = MapperModule.CommentImageDTO_To_CommentEntity(commentImageDTO);
+
+            Comment comment = MapperModule.CommentImageDTO_To_Comment(commentImageDTO);
+            CommentImage commentImage = MapperModule.CommentImageDTO_To_CommentImage(commentImageDTO);
+            comment.commentEntity = commentEntity;
+            comment.commentImage = commentImage;
+
+
+            Database.Comments.Create(comment);
+            Database.Save();
+        }
+
+
         public IEnumerable<GetCommentsDTO> GetComments(int entityType, int entityID, string userID)
         {
             IEnumerable<Comment> comments = Database.Comments.Find(item => item.commentEntity.entityType.Equals(entityType) && item.commentEntity.entityID.Equals(entityID));
 
-            IEnumerable<GetCommentsDTO> commentsDTO = comments.Select(item => new GetCommentsDTO()
+
+            var commentsDTO = comments.Select(item => new GetCommentsDTO()
             {
                 id = item.ID,
                 creator = item.commentEntity.userID,
@@ -46,11 +63,13 @@ namespace NLayerMovie.BLL.Services
                 created_by_current_user = (item.commentEntity.userID == userID ? true : false),
                 user_has_upvoted = item.Upvotes.Where(u => u.UserID.Equals(userID)).Any(),
                 content = item.context,
+                file_url = (item.commentImage == null ? null: string.Format("data:{0};base64,{1}", item.commentImage.contentType, Convert.ToBase64String(item.commentImage.data))),
+                file_mime_type = (item.commentImage == null ? null : item.commentImage.contentType),
                 parent = item.parent,
                 created = item.created,
                 modified = item.modified
             }          
-            );
+            );         
             
             return commentsDTO;
         }

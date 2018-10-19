@@ -35,6 +35,14 @@ namespace NLayerMovie.BLL.Infrastructure
             return commentEntity;
         }
 
+        public static CommentEntity CommentImageDTO_To_CommentEntity(CommentImageDTO commentImageDTO)
+        {
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<CommentImageDTO, CommentEntity>()).CreateMapper();
+            CommentEntity commentEntity = mapper.Map<CommentImageDTO, CommentEntity>(commentImageDTO);
+
+            return commentEntity;
+        }
+
         public static Comment CommentDTO_To_Comment(CommentDTO commentDTO)
         {
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<CommentDTO, Comment>()
@@ -43,6 +51,22 @@ namespace NLayerMovie.BLL.Infrastructure
             Comment comment = mapper.Map<CommentDTO, Comment>(commentDTO);
 
             return comment;
+        }
+
+        public static Comment CommentImageDTO_To_Comment(CommentImageDTO commentImageDTO)
+        {
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<CommentImageDTO, Comment>()).CreateMapper();
+            Comment comment = mapper.Map<CommentImageDTO, Comment>(commentImageDTO);
+
+            return comment;
+        }
+
+        public static CommentImage CommentImageDTO_To_CommentImage(CommentImageDTO commentImageDTO)
+        {
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<CommentImageDTO, CommentImage>()).CreateMapper();
+            CommentImage commentImage = mapper.Map<CommentImageDTO, CommentImage>(commentImageDTO);
+
+            return commentImage;
         }
 
 
