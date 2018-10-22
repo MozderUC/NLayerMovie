@@ -242,3 +242,6 @@ C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.WEB\bin\Microso
 C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.WEB\bin\Microsoft.Owin.Security.Cookies.xml
 C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.WEB\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.WEB\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.WEB\bin\NLog.config
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.WEB\bin\NLog.dll
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.WEB\bin\NLog.xml
