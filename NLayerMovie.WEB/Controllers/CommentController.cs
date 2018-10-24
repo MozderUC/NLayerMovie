@@ -194,5 +194,16 @@ namespace NLayerMovie.WEB.Controllers
 
 
         }
+
+        public string editComment(CommentEditViewModel commentEditViewModel)
+        {
+            commentEditViewModel.modified = DateTime.Now;
+            EditCommentDTO editCommentDTO = MapperModule.CommentEditViewModel_To_EditCommentDTO(commentEditViewModel);
+            commentService.EditComment(editCommentDTO);
+
+            return JsonConvert.SerializeObject(new {id = commentEditViewModel.id, content=commentEditViewModel.content, modified = commentEditViewModel.modified });
+
+        }
+
     }
 }

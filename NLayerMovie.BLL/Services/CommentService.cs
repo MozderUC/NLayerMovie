@@ -62,7 +62,7 @@ namespace NLayerMovie.BLL.Services
                 upvote_count = item.Upvote_count,
                 created_by_current_user = (item.commentEntity.userID == userID ? true : false),
                 user_has_upvoted = item.Upvotes.Where(u => u.UserID.Equals(userID)).Any(),
-                content = item.context,
+                content = item.context == null ? "" : item.context,
                 file_url = (item.commentImage == null ? null: string.Format("data:{0};base64,{1}", item.commentImage.contentType, Convert.ToBase64String(item.commentImage.data))),
                 file_mime_type = (item.commentImage == null ? null : item.commentImage.contentType),
                 parent = item.parent,
@@ -97,6 +97,17 @@ namespace NLayerMovie.BLL.Services
             }
 
         }
+
+        public void EditComment(EditCommentDTO editCommentDTO)
+        {
+            Comment comment = Database.Comments.Get(editCommentDTO.id);
+            comment.context = editCommentDTO.content;
+            comment.modified = editCommentDTO.modified;
+
+            Database.Comments.Update(comment);
+            Database.Save();
+        }
+
 
     }
 }

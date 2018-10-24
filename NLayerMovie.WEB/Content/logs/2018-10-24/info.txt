@@ -1,0 +1,6 @@
+2018-10-24 11:35:12.3459|INFO|NLayerMovie.WEB.Controllers.CommentController|User try add comment
+2018-10-24 11:35:12.3837|INFO|NLayerMovie.WEB.Controllers.CommentController|Comment succesfully added
+2018-10-24 14:32:48.5226|INFO|NLayerMovie.WEB.Controllers.CommentController|User try add comment
+2018-10-24 14:32:48.5851|INFO|NLayerMovie.WEB.Controllers.CommentController|Comment succesfully added
+2018-10-24 15:19:27.1370|INFO|NLayerMovie.WEB.Controllers.CommentController|User try add comment
+2018-10-24 15:19:27.1839|INFO|NLayerMovie.WEB.Controllers.CommentController|Comment succesfully added

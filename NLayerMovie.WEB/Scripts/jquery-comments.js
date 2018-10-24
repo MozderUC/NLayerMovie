@@ -1790,6 +1790,10 @@
                 'class': 'content'
             });
 
+            var imagecontent = $('<div/>', {
+                'class': 'imagecontent'
+            });
+
             // Case: attachment
             var isAttachment = commentModel.fileURL != undefined;
             if(isAttachment) {
@@ -1859,6 +1863,11 @@
                     link.text(fileName);
                     link.prepend(fileIcon);
                 }
+
+                imagecontent.html(this.getFormattedCommentContent(commentModel));
+                //this.getFormattedCommentContent(commentModel)
+                //content.html(link);
+                //content.find("content").html(link);
                 content.html(link);
 
             // Case: regular comment
@@ -1914,11 +1923,16 @@
             if(commentModel.createdByCurrentUser || this.options.currentUserIsAdmin) {
 
                 // Case: delete button for attachment
-                if(isAttachment && this.isAllowedToDelete(commentModel.id)) {
+                if(isAttachment) {
                     var deleteButton = $('<button/>', {
                         'class': 'action delete enabled',
                         text: this.options.textFormatter(this.options.deleteText)
                     });
+                    var editButton = $('<button/>', {
+                        'class': 'action edit',
+                        text: this.options.textFormatter(this.options.editText)
+                    });
+                    actions.append(editButton);
                     actions.append(deleteButton);
 
                 // Case: edit button for regular comment
@@ -1938,7 +1952,8 @@
                 }
             });
 
-            wrapper.append(content);
+            wrapper.append(imagecontent);
+            wrapper.append(content);           
             wrapper.append(actions);
             commentWrapper.append(profilePicture).append(time).append(nameEl).append(wrapper);
             return commentWrapper;

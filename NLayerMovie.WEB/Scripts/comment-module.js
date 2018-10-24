@@ -123,6 +123,17 @@ $(function () {
                     },
                 });
             });
+        },
+        putComment: function (commentJSON, success, error) {
+            $.ajax({
+                type: 'post',
+                url: "/Comment/editComment/" + commentJSON.id,
+                data: commentJSON,
+                success: function (comment) {
+                    success(comment)
+                },
+                error: error
+            });
         }
 
     });
