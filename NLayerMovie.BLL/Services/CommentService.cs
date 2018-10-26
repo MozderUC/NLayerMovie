@@ -51,27 +51,28 @@ namespace NLayerMovie.BLL.Services
 
         public IEnumerable<GetCommentsDTO> GetComments(int entityType, int entityID, string userID)
         {
-            IEnumerable<Comment> comments = Database.Comments.Find(item => item.commentEntity.entityType.Equals(entityType) && item.commentEntity.entityID.Equals(entityID));
-
-
-            var commentsDTO = comments.Select(item => new GetCommentsDTO()
+            using (Database)
             {
-                id = item.ID,
-                creator = item.commentEntity.userID,
-                fullname = item.commentEntity.user.Name,
-                upvote_count = item.Upvote_count,
-                created_by_current_user = (item.commentEntity.userID == userID ? true : false),
-                user_has_upvoted = item.Upvotes.Where(u => u.UserID.Equals(userID)).Any(),
-                content = item.context == null ? "" : item.context,
-                file_url = (item.commentImage == null ? null: string.Format("data:{0};base64,{1}", item.commentImage.contentType, Convert.ToBase64String(item.commentImage.data))),
-                file_mime_type = (item.commentImage == null ? null : item.commentImage.contentType),
-                parent = item.parent,
-                created = item.created,
-                modified = item.modified
-            }          
-            );         
-            
-            return commentsDTO;
+                IEnumerable<Comment> comments = Database.Comments.Find(item => item.commentEntity.entityType.Equals(entityType) && item.commentEntity.entityID.Equals(entityID));
+                var commentsDTO = comments.Select(item => new GetCommentsDTO()
+                {
+                    id = item.ID,
+                    creator = item.commentEntity.userID,
+                    fullname = item.commentEntity.user.Name,
+                    upvote_count = item.Upvote_count,
+                    created_by_current_user = (item.commentEntity.userID == userID ? true : false),
+                    user_has_upvoted = item.Upvotes.Where(u => u.UserID.Equals(userID)).Any(),
+                    content = item.context == null ? "" : item.context,
+                    file_url = (item.commentImage == null ? null : string.Format("data:{0};base64,{1}", item.commentImage.contentType, Convert.ToBase64String(item.commentImage.data))),
+                    file_mime_type = (item.commentImage == null ? null : item.commentImage.contentType),
+                    parent = item.parent,
+                    created = item.created,
+                    modified = item.modified
+                }
+                ).ToList();
+
+                return commentsDTO;
+            }
         }
 
         public void UpvoteComment(int CommentId, string UserId)
@@ -108,6 +109,11 @@ namespace NLayerMovie.BLL.Services
             Database.Save();
         }
 
+
+        public void Dispose()
+        {
+            Database.Dispose();
+        }
 
     }
 }

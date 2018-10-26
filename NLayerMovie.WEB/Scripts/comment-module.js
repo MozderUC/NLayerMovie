@@ -10,6 +10,7 @@ $(function () {
         textareaRows: 1,
         enableAttachments: true,
         maxRepliesVisible: 3,
+        enableDeleting: false,
 
         getComments: function (success, error) {
             var form = $('#__AjaxAntiForgeryForm');
@@ -130,7 +131,7 @@ $(function () {
                 url: "/Comment/editComment/" + commentJSON.id,
                 data: commentJSON,
                 success: function (comment) {
-                    success(comment)
+                    success(JSON.parse(comment))
                 },
                 error: error
             });

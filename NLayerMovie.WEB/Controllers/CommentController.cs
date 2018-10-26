@@ -122,7 +122,7 @@ namespace NLayerMovie.WEB.Controllers
                     }
                     string imageBase64Data = Convert.ToBase64String(data);
                     string imageDataURL = string.Format("data:{0};base64,{1}", file.ContentType, imageBase64Data);
-                    return JsonConvert.SerializeObject(new { file_url = imageDataURL, file_mime_type = file.ContentType });
+                    return JsonConvert.SerializeObject(new { id=10,content = "",file_url = imageDataURL, file_mime_type = file.ContentType });
                 }
                 else
                 {
@@ -203,6 +203,12 @@ namespace NLayerMovie.WEB.Controllers
 
             return JsonConvert.SerializeObject(new {id = commentEditViewModel.id, content=commentEditViewModel.content, modified = commentEditViewModel.modified });
 
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            commentService.Dispose();
+            base.Dispose(disposing);
         }
 
     }
