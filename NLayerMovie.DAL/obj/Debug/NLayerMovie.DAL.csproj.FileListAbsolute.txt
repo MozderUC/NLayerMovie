@@ -47,3 +47,6 @@ C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\bin\Debug\N
 C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\obj\Debug\NLayerMovie.DAL.Migrations.addComments.resources
 C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\obj\Debug\NLayerMovie.DAL.Migrations.addUpvote.resources
 C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\obj\Debug\NLayerMovie.DAL.Migrations.addImage.resources
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\bin\Debug\NLog.config
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\bin\Debug\NLog.dll
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.DAL\bin\Debug\NLog.xml

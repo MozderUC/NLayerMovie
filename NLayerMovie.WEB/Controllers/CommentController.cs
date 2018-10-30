@@ -11,6 +11,7 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Web.Mvc;
 using System.Configuration;
+using System.Threading.Tasks;
 
 namespace NLayerMovie.WEB.Controllers
 {
@@ -140,12 +141,13 @@ namespace NLayerMovie.WEB.Controllers
         }
 
         [ValidateAntiForgeryToken]
-        public string getComments(int entityType, int entityID)
+        public async Task<string> getComments(int entityType, int entityID)
         {
             try
             {
                 string userID = this.User.Identity.GetUserId();
-                IEnumerable<GetCommentsDTO> commentsDTO = commentService.GetComments(entityType, entityID, userID);
+                IEnumerable<GetCommentsDTO> commentsDTO = await commentService.GetCommentsAsync(entityType, entityID, userID);
+                //IEnumerable<GetCommentsDTO> commentsDTO = commentService.GetComments(entityType, entityID, userID);
                 IEnumerable<CommentsGetViewModel> commentsGetViewModel = MapperModule.GetCommentsDTO_To_CommentsGetViewModel(commentsDTO);
 
                 return JsonConvert.SerializeObject(new { commentsGetViewModel, success = true });

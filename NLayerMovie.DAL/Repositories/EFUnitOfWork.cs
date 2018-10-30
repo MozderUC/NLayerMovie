@@ -52,7 +52,7 @@ namespace NLayerMovie.DAL.Repositories
             }
         }
 
-        public IRepository<Comment> Comments
+        public ICommentRepository<Comment> Comments
         {
             get
             {
@@ -105,12 +105,12 @@ namespace NLayerMovie.DAL.Repositories
             if (!this.disposed)
             {
                 if (disposing)
-                {
-                    db.Dispose();
-                    userManager.Dispose();
-                    roleManager.Dispose();
-                    clientManager.Dispose();
+                {                    
                 }
+                db.Dispose();
+                userManager.Dispose();
+                roleManager.Dispose();
+                clientManager.Dispose();
                 this.disposed = true;
             }
         }
@@ -119,6 +119,11 @@ namespace NLayerMovie.DAL.Repositories
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        ~EFUnitOfWork()
+        {
+            Dispose(false);
         }
     }
 }

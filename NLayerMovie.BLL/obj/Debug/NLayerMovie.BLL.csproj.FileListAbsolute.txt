@@ -43,3 +43,6 @@ C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.BLL\bin\Debug\M
 C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.BLL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.BLL\bin\Debug\NLog.config
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.BLL\bin\Debug\NLog.dll
+C:\Users\Uladzislau_Mozhjer\source\repos\NLayerMovie\NLayerMovie.BLL\bin\Debug\NLog.xml

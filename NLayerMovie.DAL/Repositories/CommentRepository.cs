@@ -10,8 +10,10 @@ using NLayerMovie.DAL.Interfaces;
 
 namespace NLayerMovie.DAL.Repositories
 {
-    public class CommentRepository : IRepository<Comment>
+    public class CommentRepository : ICommentRepository<Comment>
     {
+        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
         private MovieContext db;
 
         public CommentRepository(MovieContext context)
@@ -45,7 +47,13 @@ namespace NLayerMovie.DAL.Repositories
         {
             return db.Comments.Include("commentImage").Where(predicate).ToList();
         }
-        
+
+        public async Task<List<Comment>> FindAsync(int entityType, int entityID)
+        {
+            return await db.Comments.Include("commentImage").Where(item => item.commentEntity.entityType.Equals(entityType) && item.commentEntity.entityID.Equals(entityID)).ToListAsync();                         
+        }
+
+
         public void Delete(int id)
         {
             Movie movie = db.Movies.Find(id);
