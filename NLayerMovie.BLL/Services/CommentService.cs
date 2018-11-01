@@ -26,6 +26,7 @@ namespace NLayerMovie.BLL.Services
 
             CommentEntity commentEntity = MapperModule.CommentDTO_To_CommentEntity(commentDTO);
 
+
             Comment comment = MapperModule.CommentDTO_To_Comment(commentDTO);
             comment.commentEntity = commentEntity;
 
