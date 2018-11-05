@@ -4,11 +4,9 @@ using NLayerMovie.BLL.Infrastructure;
 using NLayerMovie.BLL.Interfaces;
 using NLayerMovie.DAL.Entities;
 using NLayerMovie.DAL.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace NLayerMovie.BLL.Services

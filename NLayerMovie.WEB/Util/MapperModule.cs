@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
 using NLayerMovie.BLL.DTO;
 using NLayerMovie.WEB.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace NLayerMovie.WEB.Util
 {

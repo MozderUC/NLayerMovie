@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace NLayerMovie.WEB.Models
+﻿namespace NLayerMovie.WEB.Models
 {
     public class GenreViewModel
     {

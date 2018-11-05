@@ -1,12 +1,10 @@
-﻿using AutoMapper;
-using NLayerMovie.BLL.DTO;
+﻿using NLayerMovie.BLL.DTO;
 using NLayerMovie.BLL.Interfaces;
 using NLayerMovie.DAL.Entities;
 using NLayerMovie.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using NLayerMovie.BLL.Infrastructure;
 
@@ -25,7 +23,6 @@ namespace NLayerMovie.BLL.Services
         {
 
             CommentEntity commentEntity = MapperModule.CommentDTO_To_CommentEntity(commentDTO);
-
 
             Comment comment = MapperModule.CommentDTO_To_Comment(commentDTO);
             comment.commentEntity = commentEntity;
